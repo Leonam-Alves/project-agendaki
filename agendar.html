@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Agendaki</title>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+    
+    <main>
+        <section>
+            <h2>Novo Agendamento</h2>
+            <form action="/agendamento" method="post">     
+                <label for="nome">Nome:</label>
+                <input id="nome" name="nome" type="text" placeholder="Insira seu nome" required>
+
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" name="telefone" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                
+                <label for="descrição">Descrição</label>
+                <textarea id="descrição" name="descrição" 
+                type="text" placeholder="Descreva o agendamento" required></textarea>
+                
+                <label for="data">Data:</label>
+                <input id="data" name="data" type="date" required>
+
+                <label for="hora">Hora:</label>
+                <input id="hora" name="hora" type="time" required>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Agendaki</p>
+        <p>Sistema de Agendamentos</p>
+        <p>2026 - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendaki</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h2>Todos Agendamentos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Cliente</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0001</td>
+                        <td>Joãozinho</td>
+                        <td>20/08/2026</td>
+                        <td>15:00</td>
+                        <td>Finalizado</td>
+                    </tr>
+                    <tr>
+                        <td>0002</td>
+                        <td>Zé</td>
+                        <td>20/08/2026</td>
+                        <td>10:00</td>
+                        <td>Cancelado</td>
+                    </tr>
+                    <tr>
+                        <td>0003</td>
+                        <td>Conceição</td>
+                        <td>20/08/2026</td>
+                        <td>18:00</td>
+                        <td>Marcado</td>
+                    </tr>
+                    <tr>
+                        <td>0004</td>
+                        <td>Manoel Gomes</td>
+                        <td>20/12/2026</td>
+                        <td>12:00</td>
+                        <td>Marcado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>Agendaki</p>
+        <p>Sistema de Agendamentos</p>
+        <p>2026 - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+    </script>
+</body>
+</html>
