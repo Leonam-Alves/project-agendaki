@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
     <title>Agendaki</title>
 </head>
 <body>
@@ -13,23 +14,25 @@
     <main>
         <section>
             <h2>Novo Agendamento</h2>
-            <form action="/agendamento" method="post">     
+            <form id="form-agendamento" action="/agendamento" method="post">     
                 <label for="nome">Nome:</label>
-                <input id="nome" name="nome" type="text" placeholder="Insira seu nome" required>
+                <input id="nome" name="nome" type="text" placeholder="Insira seu nome">
 
                 <label for="telefone">Telefone:</label>
-                <input id="telefone" name="telefone" type="tel" placeholder="(xx) xxxxx-xxxx" required>
+                <input id="telefone" name="telefone" type="tel" placeholder="(xx) xxxxx-xxxx">
                 
                 <label for="descrição">Descrição</label>
                 <textarea id="descrição" name="descrição" 
-                type="text" placeholder="Descreva o agendamento" required></textarea>
+                type="text" placeholder="Descreva o agendamento"></textarea>
                 
                 <label for="data">Data:</label>
-                <input id="data" name="data" type="date" required>
+                <input id="data" name="data" type="date">
 
                 <label for="hora">Hora:</label>
-                <input id="hora" name="hora" type="time" required>
-                
+                <input id="hora" name="hora" type="time">
+
+                <p id="mensagem-erro"></p>
+
                 <button type="submit">Enviar</button>
             </form>
         </section>

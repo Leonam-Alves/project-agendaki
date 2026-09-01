@@ -149,3 +149,19 @@ footer {
 footer p {
     margin: 5px 0;
 }
+
+.campo-erro {
+    border: 2px solid #DC2626 !important; 
+    background-color: #FEF2F2 !important; 
+}
+
+.mensagem-error {
+    color: #DC2626;
+    background-color: #FEF2F2;
+    padding: 10px;
+    border: 1px solid #DC2626;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
