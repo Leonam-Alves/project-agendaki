@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js" defer></script>
+    <title>Agendaki</title>
+</head>
+<body>
+    <header>
+        <h1>Agendaki</h1>
+        <nav>
+            <a th:href="@{/}">Página inicial</a>
+            <a th:href="@{/agendamentos/novo}">Novo Agendamento</a>
+            <a th:href="@{/agendamentos}">Todos Agendamentos</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Todos Agendamentos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Cliente</th>
+                        <th>Telefone</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="agendamento : ${agendamentos}">
+                        <td th:text="${agendamento.id}"></td>
+                        <td th:text="${agendamento.nome}"></td>
+                        <td th:text="${agendamento.telefone}"></td>
+                        <td th:text="${agendamento.data}"></td>
+                        <td th:text="${agendamento.hora}"></td>
+                        <td th:text="${agendamento.status}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>Agendaki</p>
+        <p>Sistema de Agendamentos</p>
+        <p>2026 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
