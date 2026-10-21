@@ -13,15 +13,20 @@ public class Agendamento {
 
     @NotBlank(message = "O nome do cliente é obrigatório.")
     @Size(min = 3, max = 150, message = "O nome deve ter entre 3 e 150 caracteres.")
+    @Column(nullable = false, length = 150)
     private String nome;
 
     @NotBlank(message = "A data é obrigatória.")
+    @Column(nullable = false, length = 20)
     private String data;
 
     @NotBlank(message = "O horário é obrigatório.")
+    @Column(nullable = false, length = 20)
     private String hora;
 
+    @Column(nullable = false, length = 50)
     private String status;
+
     private String telefone;
 
     @Size(max = 500, message = "A descrição deve ter no máximo 500 caracteres.")
