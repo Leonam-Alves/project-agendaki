@@ -7,7 +7,7 @@ Este projeto é uma aplicação web desenvolvida como parte da disciplina de lab
 - Nadson Costa
 
 ## Tecnologias Utilizadas
-- Java 25
+- Java 21
 - Spring Boot
 - Thymeleaf
 - HTML5, CSS3, JavaScript
