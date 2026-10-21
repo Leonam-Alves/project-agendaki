@@ -21,23 +21,26 @@
         <section>
             <h2>Novo Agendamento</h2>
             <form id="form-agendamento" th:action="@{/agendamentos}" th:object="${agendamento}" method="post">
+
                 <label for="nome">Nome:</label>
-                <input id="nome" th:field="*{nome}" name="nome" type="text" placeholder="Insira seu nome">
+                <input id="nome" th:field="*{nome}" type="text" placeholder="Insira seu nome" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="mensagem-erro"></p>
 
                 <label for="telefone">Telefone:</label>
-                <input id="telefone" th:field="*{telefone}" name="telefone" type="tel" placeholder="(xx) xxxxx-xxxx">
-                
-                <label for="descrição">Descrição</label>
-                <textarea id="descrição" th:field="*{descricao}" name="descrição"
-                type="text" placeholder="Descreva o agendamento"></textarea>
-                
+                <input id="telefone" th:field="*{telefone}" type="tel" placeholder="(xx) xxxxx-xxxx" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="mensagem-erro"></p>
+
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" th:field="*{descricao}" placeholder="Descreva o agendamento" th:errorclass="campo-erro"></textarea>
+                <p th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="mensagem-erro"></p>
+
                 <label for="data">Data:</label>
-                <input id="data" th:field="*{data}" name="data" type="date">
+                <input id="data" th:field="*{data}" type="date" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('data')}" th:errors="*{data}" class="mensagem-erro"></p>
 
                 <label for="hora">Hora:</label>
-                <input id="hora" th:field="*{hora}" name="hora" type="time">
-
-                <p id="mensagem-erro"></p>
+                <input id="hora" th:field="*{hora}" type="time" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}" class="mensagem-erro"></p>
 
                 <button type="submit">Enviar</button>
             </form>
