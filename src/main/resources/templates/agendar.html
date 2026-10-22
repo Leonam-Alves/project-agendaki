@@ -8,27 +8,32 @@
     <title>Agendaki</title>
 </head>
 <body>
-    <header>
-        <h1>Agendaki</h1>
-        <nav>
-            <a th:href="@{/}">Página inicial</a>
-            <a th:href="@{/agendamentos/novo}">Novo Agendamento</a>
-            <a th:href="@{/agendamentos}">Todos Agendamentos</a>
-        </nav>
-    </header>
+    <header th:replace="~{fragments/layout :: header}"></header>
 
     <main>
         <section>
             <h2>Novo Agendamento</h2>
             <form id="form-agendamento" th:action="@{/agendamentos}" th:object="${agendamento}" method="post">
 
-                <label for="nome">Nome:</label>
-                <input id="nome" th:field="*{nome}" type="text" placeholder="Insira seu nome" th:errorclass="campo-erro">
-                <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="mensagem-erro"></p>
+                <p th:if="${erroNegocio != null}" th:text="${erroNegocio}" class="mensagem-erro"></p>
 
-                <label for="telefone">Telefone:</label>
-                <input id="telefone" th:field="*{telefone}" type="tel" placeholder="(xx) xxxxx-xxxx" th:errorclass="campo-erro">
-                <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="mensagem-erro"></p>
+                <label for="clienteId">Cliente:</label>
+                <select id="clienteId" th:field="*{clienteId}" th:errorclass="campo-erro">
+                    <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>
+                </select>
+                <p th:if="${#fields.hasErrors('clienteId')}" th:errors="*{clienteId}" class="mensagem-erro"></p>
+
+                <label for="profissionalId">Profissional:</label>
+                <select id="profissionalId" th:field="*{profissionalId}" th:errorclass="campo-erro">
+                    <option th:each="p : ${profissionais}" th:value="${p.id}" th:text="${p.nome}"></option>
+                </select>
+                <p th:if="${#fields.hasErrors('profissionalId')}" th:errors="*{profissionalId}" class="mensagem-erro"></p>
+
+                <label for="categoriaId">Categoria:</label>
+                <select id="categoriaId" th:field="*{categoriaId}" th:errorclass="campo-erro">
+                    <option th:each="cat : ${categorias}" th:value="${cat.id}" th:text="${cat.nome}"></option>
+                </select>
+                <p th:if="${#fields.hasErrors('categoriaId')}" th:errors="*{categoriaId}" class="mensagem-erro"></p>
 
                 <label for="descricao">Descrição:</label>
                 <textarea id="descricao" th:field="*{descricao}" placeholder="Descreva o agendamento" th:errorclass="campo-erro"></textarea>
@@ -42,15 +47,13 @@
                 <input id="hora" th:field="*{hora}" type="time" th:errorclass="campo-erro">
                 <p th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}" class="mensagem-erro"></p>
 
+                <p id="mensagem-erro" class="mensagem-erro"></p>
+
                 <button type="submit">Enviar</button>
             </form>
         </section>
     </main>
-    <footer>
-        <p>Agendaki</p>
-        <p>Sistema de Agendamentos</p>
-        <p>2026 - Todos os direitos reservados</p>
-    </footer>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>
 </html>
-

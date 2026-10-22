@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <header th:fragment="header">
+        <h1>Agendaki</h1>
+        <nav>
+            <a th:href="@{/}">Página inicial</a>
+            <a th:href="@{/agendamentos/novo}">Novo Agendamento</a>
+            <a th:href="@{/agendamentos}">Todos Agendamentos</a>
+            <a th:href="@{/clientes}">Clientes</a>
+            <a th:href="@{/profissionais}">Profissionais</a>
+            <a th:href="@{/categorias}">Categorias</a>
+        </nav>
+    </header>
+
+    <footer th:fragment="footer">
+        <p>Agendaki</p>
+        <p>Sistema de Agendamentos</p>
+        <p>2026 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

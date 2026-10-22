@@ -8,24 +8,20 @@
     <title>Agendaki</title>
 </head>
 <body>
-    <header>
-        <h1>Agendaki</h1>
-        <nav>
-            <a th:href="@{/}">Página inicial</a>
-            <a th:href="@{/agendamentos/novo}">Novo Agendamento</a>
-            <a th:href="@{/agendamentos}">Todos Agendamentos</a>
-        </nav>
-    </header>
+    <header th:replace="~{fragments/layout :: header}"></header>
 
     <main>
         <section>
             <h2>Todos Agendamentos</h2>
+            <a th:href="@{/agendamentos/novo}" class="link-acao">+ Novo Agendamento</a>
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome do Cliente</th>
+                        <th>Cliente</th>
                         <th>Telefone</th>
+                        <th>Profissional</th>
+                        <th>Categoria</th>
                         <th>Data</th>
                         <th>Hora</th>
                         <th>Status</th>
@@ -34,8 +30,10 @@
                 <tbody>
                     <tr th:each="agendamento : ${agendamentos}">
                         <td th:text="${agendamento.id}"></td>
-                        <td th:text="${agendamento.nome}"></td>
-                        <td th:text="${agendamento.telefone}"></td>
+                        <td th:text="${agendamento.clienteNome}"></td>
+                        <td th:text="${agendamento.clienteTelefone}"></td>
+                        <td th:text="${agendamento.profissionalNome}"></td>
+                        <td th:text="${agendamento.categoriaNome}"></td>
                         <td th:text="${agendamento.data}"></td>
                         <td th:text="${agendamento.hora}"></td>
                         <td th:text="${agendamento.status}"></td>
@@ -44,10 +42,7 @@
             </table>
         </section>
     </main>
-    <footer>
-        <p>Agendaki</p>
-        <p>Sistema de Agendamentos</p>
-        <p>2026 - Todos os direitos reservados</p>
-    </footer>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>
 </html>
