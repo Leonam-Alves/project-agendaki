@@ -31,6 +31,22 @@ CREATE DATABASE agendaki;
 4. Acesse `http://localhost:8080` no seu navegador.
 
 ## Principais Rotas
+
+### Geral
 - `/`: Página inicial (Dashboard)
-- `/agendamentos`: Tela de listagem de agendamentos
-- `/agendamentos/novo`: Formulário para criar um novo agendamento
+
+### Agendamentos
+- `/agendamentos`: Listagem de agendamentos
+- `/agendamentos/novo`: Formulário para criar novo agendamento
+
+### Clientes
+- `/clientes`: Listagem de clientes
+- `/clientes/novo`: Formulário para cadastrar novo cliente
+
+### Profissionais
+- `/profissionais`: Listagem de profissionais
+- `/profissionais/novo`: Formulário para cadastrar novo profissional
+
+### Categorias
+- `/categorias`: Listagem de categorias
+- `/categorias/novo`: Formulário para cadastrar nova categoria Formulário para criar um novo agendamento
