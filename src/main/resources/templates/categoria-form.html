@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js" defer></script>
+    <title>Agendaki</title>
+</head>
+<body>
+    <header th:replace="~{fragments/layout :: header}"></header>
+
+    <main>
+        <section>
+            <h2>Nova Categoria</h2>
+            <form id="form-categoria" th:action="@{/categorias}" th:object="${categoria}" method="post">
+
+                <p th:if="${erroNegocio != null}" th:text="${erroNegocio}" class="mensagem-erro"></p>
+
+                <label for="nome">Nome:</label>
+                <input id="nome" th:field="*{nome}" type="text" placeholder="Ex: Cardiologia" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="mensagem-erro"></p>
+
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" th:field="*{descricao}" placeholder="Descreva a especialidade" th:errorclass="campo-erro"></textarea>
+                <p th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="mensagem-erro"></p>
+
+                <p id="mensagem-erro" class="mensagem-erro"></p>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

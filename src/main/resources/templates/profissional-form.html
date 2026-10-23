@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js" defer></script>
+    <title>Agendaki</title>
+</head>
+<body>
+    <header th:replace="~{fragments/layout :: header}"></header>
+
+    <main>
+        <section>
+            <h2>Novo Profissional</h2>
+            <form id="form-profissional" th:action="@{/profissionais}" th:object="${profissional}" method="post">
+
+                <p th:if="${erroNegocio != null}" th:text="${erroNegocio}" class="mensagem-erro"></p>
+
+                <label for="nome">Nome:</label>
+                <input id="nome" th:field="*{nome}" type="text" placeholder="Insira o nome do profissional" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="mensagem-erro"></p>
+
+                <label for="registroProfissional">Registro Profissional (CRM):</label>
+                <input id="registroProfissional" th:field="*{registroProfissional}" type="text" placeholder="Ex: CRM-12345" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('registroProfissional')}" th:errors="*{registroProfissional}" class="mensagem-erro"></p>
+
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" th:field="*{telefone}" type="tel" placeholder="(xx) xxxxx-xxxx" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="mensagem-erro"></p>
+
+                <label for="categoriaId">Categoria:</label>
+                <select id="categoriaId" th:field="*{categoriaId}" th:errorclass="campo-erro">
+                    <option th:each="cat : ${categorias}" th:value="${cat.id}" th:text="${cat.nome}"></option>
+                </select>
+                <p th:if="${#fields.hasErrors('categoriaId')}" th:errors="*{categoriaId}" class="mensagem-erro"></p>
+
+                <p id="mensagem-erro" class="mensagem-erro"></p>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

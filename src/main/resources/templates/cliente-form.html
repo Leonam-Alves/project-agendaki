@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js" defer></script>
+    <title>Agendaki</title>
+</head>
+<body>
+    <header th:replace="~{fragments/layout :: header}"></header>
+
+    <main>
+        <section>
+            <h2>Novo Cliente</h2>
+            <form id="form-cliente" th:action="@{/clientes}" th:object="${cliente}" method="post">
+
+                <label for="nome">Nome:</label>
+                <input id="nome" th:field="*{nome}" type="text" placeholder="Insira o nome do cliente" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="mensagem-erro"></p>
+
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" th:field="*{telefone}" type="tel" placeholder="(xx) xxxxx-xxxx" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="mensagem-erro"></p>
+
+                <label for="email">E-mail:</label>
+                <input id="email" th:field="*{email}" type="email" placeholder="email@exemplo.com" th:errorclass="campo-erro">
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="mensagem-erro"></p>
+
+                <p id="mensagem-erro" class="mensagem-erro"></p>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

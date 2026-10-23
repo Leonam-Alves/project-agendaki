@@ -150,6 +150,22 @@ footer p {
     margin: 5px 0;
 }
 
+.link-acao {
+    display: inline-block;
+    background-color: #FACC15;
+    color: #1A1A1A;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.link-acao:hover {
+    background-color: #EAB308;
+}
+
 .campo-erro {
     border: 2px solid #DC2626 !important; 
     background-color: #FEF2F2 !important; 
@@ -164,4 +180,8 @@ footer p {
     font-size: 14px;
     text-align: center;
     margin-top: 5px;
+}
+
+.mensagem-erro:empty {
+    display: none;
 }
